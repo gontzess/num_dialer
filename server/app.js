@@ -78,7 +78,7 @@ app.post("/callStatus/:phoneNumberId", (req, res) => {
   const phoneNumberId = req.params.phoneNumberId;
 
   console.log(
-    "From Webhook, Number Id: ",
+    "Webhook | phoneNumberId: ",
     phoneNumberId,
     " Status: ",
     req.body.status,
