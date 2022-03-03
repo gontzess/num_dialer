@@ -11,15 +11,15 @@ const runTasks = require("./utils/runTasks.js");
 const app = express();
 
 const phoneNumbers = [
-  { phoneNumber: "13018040009", phoneNumberId: 11 },
-  { phoneNumber: "19842068287", phoneNumberId: 22 },
-  { phoneNumber: "15512459377", phoneNumberId: 33 },
-  { phoneNumber: "19362072765", phoneNumberId: 44 },
-  { phoneNumber: "18582210308", phoneNumberId: 55 },
-  { phoneNumber: "13018040009", phoneNumberId: 66 },
-  { phoneNumber: "19842068287", phoneNumberId: 77 },
-  { phoneNumber: "15512459377", phoneNumberId: 88 },
-  { phoneNumber: "19362072765", phoneNumberId: 99 },
+  { phoneNumber: "13018040009", phoneNumberId: 1 },
+  { phoneNumber: "19842068287", phoneNumberId: 2 },
+  { phoneNumber: "15512459377", phoneNumberId: 3 },
+  { phoneNumber: "19362072765", phoneNumberId: 4 },
+  { phoneNumber: "18582210308", phoneNumberId: 5 },
+  { phoneNumber: "13018040009", phoneNumberId: 6 },
+  { phoneNumber: "19842068287", phoneNumberId: 7 },
+  { phoneNumber: "15512459377", phoneNumberId: 8 },
+  { phoneNumber: "19362072765", phoneNumberId: 9 },
 ];
 
 app.use(cors());
@@ -52,9 +52,9 @@ const callPhoneNumber =
       })
       .then((response) => {
         if (response.status !== 200) return null;
-        console.log(`Started calling this number ${phoneNumberId}`);
+        console.log(`Started calling phoneNumberId ${phoneNumberId}`);
         activeCalls[phoneNumberId] = () => {
-          console.log(`Finished calling this number ${phoneNumberId}`);
+          console.log(`Finished calling phoneNumberId ${phoneNumberId}`);
           callCompletePromise.resolve();
         };
       })
