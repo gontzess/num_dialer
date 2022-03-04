@@ -4,11 +4,11 @@ require("express-async-errors");
 const cors = require("cors");
 const middleware = require("./utils/middleware");
 const runTasks = require("./utils/runTasks");
-const Deferred = require("./utils/Deferred");
 const {
   phoneNumbers,
   callPhoneNumber,
   checkIfCallCompleteAndResolve,
+  Deferred,
 } = require("./utils/phoneHelpers");
 
 const app = express();

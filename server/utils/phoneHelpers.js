@@ -45,8 +45,18 @@ const checkIfCallCompleteAndResolve = (phoneNumberId, status) => {
   }
 };
 
+class Deferred {
+  constructor() {
+    this.promise = new Promise((resolve, reject) => {
+      this.reject = reject;
+      this.resolve = resolve;
+    });
+  }
+}
+
 module.exports = {
   phoneNumbers,
   callPhoneNumber,
   checkIfCallCompleteAndResolve,
+  Deferred,
 };
