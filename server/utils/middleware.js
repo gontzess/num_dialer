@@ -5,6 +5,16 @@ const requestLogger = (request, _, next) => {
   next();
 };
 
+const webhookLogger = (request, _, next) => {
+  console.log(
+    "Webhook | phoneNumberId: ",
+    request.params.phoneNumberId,
+    " Status: ",
+    request.body.status,
+  );
+  next();
+};
+
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unknown endpoint" });
 };
@@ -23,6 +33,7 @@ const errorHandler = (error, request, response, next) => {
 
 module.exports = {
   requestLogger,
+  webhookLogger,
   unknownEndpoint,
   errorHandler,
 };
