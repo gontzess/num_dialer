@@ -7,8 +7,8 @@ const runTasks = require("./utils/runTasks");
 const Deferred = require("./utils/Deferred");
 const {
   phoneNumbers,
-  activeCalls,
   callPhoneNumber,
+  checkIfCallCompleteAndResolve,
 } = require("./utils/phoneHelpers");
 
 const app = express();
@@ -35,15 +35,8 @@ app.post("/callPhoneNumbers", (_, res) => {
 
 app.post("/callStatus/:phoneNumberId", middleware.webhookLogger, (req, res) => {
   const phoneNumberId = Number(req.params.phoneNumberId);
-
   io.send({ status: req.body.status, phoneNumberId: phoneNumberId });
-
-  // refactor opportunity
-  if (activeCalls[phoneNumberId] && req.body.status === "completed") {
-    const resolveCallCompletePromise = activeCalls[phoneNumberId];
-    resolveCallCompletePromise();
-  }
-
+  checkIfCallCompleteAndResolve(phoneNumberId, req.body.status);
   res.sendStatus(200);
 });
 

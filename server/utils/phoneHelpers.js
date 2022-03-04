@@ -38,4 +38,15 @@ const callPhoneNumber =
     await callCompletePromise.promise;
   };
 
-module.exports = { phoneNumbers, activeCalls, callPhoneNumber };
+const checkIfCallCompleteAndResolve = (phoneNumberId, status) => {
+  if (activeCalls[phoneNumberId] && status === "completed") {
+    const resolveCallCompletePromise = activeCalls[phoneNumberId];
+    resolveCallCompletePromise();
+  }
+};
+
+module.exports = {
+  phoneNumbers,
+  callPhoneNumber,
+  checkIfCallCompleteAndResolve,
+};
