@@ -99,3 +99,85 @@ implementation plan:
     - only log status updates for now
 
 */
+
+// Started calling phoneNumberId 1
+// Started calling phoneNumberId 2
+// Started calling phoneNumberId 3
+// Webhook | phoneNumberId:  3  Status:  ringing
+// Webhook | phoneNumberId:  2  Status:  ringing
+// Webhook | phoneNumberId:  2  Status:  answered
+// Webhook | phoneNumberId:  2  Status:  completed
+// Finished calling phoneNumberId 2
+// Started calling phoneNumberId 4
+// Webhook | phoneNumberId:  3  Status:  completed
+// Finished calling phoneNumberId 3
+// Started calling phoneNumberId 5
+// Webhook | phoneNumberId:  5  Status:  completed
+// Finished calling phoneNumberId 5
+// Started calling phoneNumberId 6
+// Webhook | phoneNumberId:  5  Status:  ringing
+// Webhook | phoneNumberId:  1  Status:  ringing
+// Webhook | phoneNumberId:  4  Status:  ringing
+// Webhook | phoneNumberId:  1  Status:  answered
+// Webhook | phoneNumberId:  1  Status:  completed
+// Finished calling phoneNumberId 1
+// Started calling phoneNumberId 7
+// Webhook | phoneNumberId:  6  Status:  ringing
+// Webhook | phoneNumberId:  4  Status:  completed
+// Finished calling phoneNumberId 4
+// Started calling phoneNumberId 8
+// Webhook | phoneNumberId:  7  Status:  ringing
+// Webhook | phoneNumberId:  6  Status:  answered
+// Webhook | phoneNumberId:  8  Status:  ringing
+// Webhook | phoneNumberId:  7  Status:  answered
+// Webhook | phoneNumberId:  7  Status:  completed
+// Finished calling phoneNumberId 7
+// Started calling phoneNumberId 9
+// Webhook | phoneNumberId:  8  Status:  completed
+// Finished calling phoneNumberId 8
+// Webhook | phoneNumberId:  6  Status:  completed
+// Finished calling phoneNumberId 6
+// Webhook | phoneNumberId:  9  Status:  ringing
+// Webhook | phoneNumberId:  9  Status:  completed
+// Finished calling phoneNumberId 9
+
+// Started calling phoneNumberId 1
+// Started calling phoneNumberId 2
+// Started calling phoneNumberId 3
+// Webhook | phoneNumberId:  1  Status:  ringing
+// Webhook | phoneNumberId:  2  Status:  ringing
+// Webhook | phoneNumberId:  3  Status:  ringing
+// Webhook | phoneNumberId:  2  Status:  answered
+// Webhook | phoneNumberId:  1  Status:  answered
+// Webhook | phoneNumberId:  2  Status:  completed
+// Finished calling phoneNumberId 2
+// Started calling phoneNumberId 4
+// Webhook | phoneNumberId:  3  Status:  completed
+// Finished calling phoneNumberId 3
+// Started calling phoneNumberId 5
+// Webhook | phoneNumberId:  5  Status:  completed
+// Finished calling phoneNumberId 5
+// Started calling phoneNumberId 6
+// Webhook | phoneNumberId:  5  Status:  ringing
+// Webhook | phoneNumberId:  4  Status:  ringing
+// Webhook | phoneNumberId:  6  Status:  ringing
+// Webhook | phoneNumberId:  1  Status:  completed
+// Finished calling phoneNumberId 1
+// Started calling phoneNumberId 7
+// Webhook | phoneNumberId:  7  Status:  ringing
+// Webhook | phoneNumberId:  7  Status:  answered
+// Webhook | phoneNumberId:  4  Status:  completed
+// Finished calling phoneNumberId 4
+// Started calling phoneNumberId 8
+// Webhook | phoneNumberId:  6  Status:  answered
+// Webhook | phoneNumberId:  6  Status:  completed
+// Finished calling phoneNumberId 6
+// Started calling phoneNumberId 9
+// Webhook | phoneNumberId:  9  Status:  ringing
+// Webhook | phoneNumberId:  8  Status:  ringing
+// Webhook | phoneNumberId:  7  Status:  completed
+// Finished calling phoneNumberId 7
+// Webhook | phoneNumberId:  9  Status:  completed
+// Finished calling phoneNumberId 9
+// Webhook | phoneNumberId:  8  Status:  completed
+// Finished calling phoneNumberId 8

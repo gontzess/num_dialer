@@ -1,12 +1,36 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
+import { io } from "socket.io-client";
 
 function App() {
   const [phoneNumbers, setPhoneNumbers] = useState([]);
+
   useEffect(() => {
     axios
       .get("/phoneNumbers")
       .then((response) => setPhoneNumbers(response.data));
+  }, []);
+
+  const handleUpdateCallStatus = ({ status, phoneNumberId }) => {
+    console.log(status, phoneNumberId);
+    setPhoneNumbers((phoneNumbers) =>
+      phoneNumbers.map((phoneNumber) => {
+        if (
+          phoneNumber.phoneNumberId === phoneNumberId &&
+          phoneNumber.status !== "completed"
+        ) {
+          return { ...phoneNumber, status };
+        } else {
+          return phoneNumber;
+        }
+      }),
+    );
+  };
+
+  useEffect(() => {
+    const socket = io("/");
+    socket.on("message", handleUpdateCallStatus);
+    return () => socket.disconnect();
   }, []);
 
   const [callInitiated, setCallInitiated] = useState(false);
@@ -23,10 +47,10 @@ function App() {
         Call
       </button>
       <ol>
-        {phoneNumbers.map(({ phoneNumber, phoneNumberId }) => (
+        {phoneNumbers.map(({ phoneNumber, phoneNumberId, status }) => (
           <li key={phoneNumberId}>
             <p>Number: {phoneNumber}</p>
-            <p>Status: Idle</p>
+            <p>Status: {status ? status : "idle"}</p>
           </li>
         ))}
       </ol>
